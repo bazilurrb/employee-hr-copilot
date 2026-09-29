@@ -1,4 +1,4 @@
-# PeoplePrime HR Copilot — Enterprise HR Policy & Employee Support Agentic RAG
+# Enterprise HR Policy & Employee Support Agentic RAG Copilot
 
 An end-to-end Forward Deployed Engineer (FDE) project that turns an Agentic RAG workflow into a deployable internal HR product using **LangGraph, FastAPI, Pinecone, Groq, Tavily, HTML/CSS/JavaScript**, packaged with **Docker** and deployed on **DigitalOcean**.
 
