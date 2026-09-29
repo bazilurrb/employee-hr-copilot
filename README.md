@@ -1,4 +1,4 @@
-# PeoplePrime HR Copilot — Enterprise HR Policy & Employee Support Agentic RAG
+# HRCompass HR Copilot — Enterprise HR Policy & Employee Support Agentic RAG
 
 An end-to-end Forward Deployed Engineer (FDE) project that turns an Agentic RAG workflow into a deployable internal HR product using **LangGraph, FastAPI, Pinecone, Groq, Tavily, HTML/CSS/JavaScript**, packaged with **Docker** and deployed on **DigitalOcean**.
 
@@ -9,7 +9,7 @@ An end-to-end Forward Deployed Engineer (FDE) project that turns an Agentic RAG 
 ## 1. Business Problem
 
 ### Customer
-**PeoplePrime**, a fictional 3,000-employee retail company.
+**HRCompass**, a fictional 3,000-employee retail company.
 
 ### Problem
 The HR team maintains many internal documents: leave policies, remote-work rules, payroll guidance, benefits information, onboarding procedures, conduct policies, and HR operations runbooks.
@@ -156,7 +156,7 @@ flowchart TD
 ## 7. Project Structure
 
 ```text
-PeoplePrime-HR-Policy-Agentic-RAG-Copilot/
+HRCompass-HR-Policy-Agentic-RAG-Copilot/
 ├── app/
 │   ├── api/routes.py
 │   ├── core/config.py
