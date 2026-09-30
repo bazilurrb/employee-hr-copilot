@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 from typing import Literal, cast
 from langchain_groq import ChatGroq
 from pydantic import SecretStr
@@ -166,9 +167,11 @@ Question: {state['question']}\n\nPrivate KB:\n{context}
     seen = set()
     for d in state["kb_docs"]:
         src = d.metadata.get("source", "Private KB")
-        if src not in seen:
-            seen.add(src)
-            citations.append({"title": src.split("/")[-1], "url": "", "type": "private_kb"})
+        # Use pathlib so Windows backslash paths are handled correctly
+        title = Path(src).name if src != "Private KB" else "Private KB"
+        if title not in seen:
+            seen.add(title)
+            citations.append({"title": title, "url": "", "type": "private_kb"})
     return {"answer": answer, "source_used": "private_kb", "citations": citations, "trace": add_trace(state, "Answer generation → PRIVATE KB")}
 
 
