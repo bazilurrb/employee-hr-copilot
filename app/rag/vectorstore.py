@@ -1,6 +1,6 @@
 import time
 from pinecone import Pinecone, ServerlessSpec
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from app.core.config import get_settings
 
@@ -44,11 +44,10 @@ def get_embedding_dimension(model_name: str | None = None) -> int:
 def get_embeddings():
     global _embeddings
     if _embeddings is None:
-        # Local model: no API key needed. Downloaded once on first run, then cached.
-        _embeddings = HuggingFaceEmbeddings(
+        _embeddings = FastEmbedEmbeddings(
             model_name=settings.embedding_model,
-            model_kwargs={"device": "cpu"},
-            encode_kwargs={"normalize_embeddings": True},
+            max_length=256,   # MiniLM's limit; keeps memory down
+            threads=1,
         )
     return _embeddings
 
